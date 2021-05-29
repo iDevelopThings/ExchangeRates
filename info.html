@@ -1,0 +1,487 @@
+{{ define "info" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter.</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <style>
+        html {
+            background: #0F172A;
+            color: #F1F5F9;
+            font-family: "Inter", sans-serif;
+        }
+
+        .github {
+            color: #F1F5F9;
+        }
+        .github:hover {
+            color: #bebebe;
+        }
+
+        .content {
+            padding: 4rem;
+        }
+
+        .section {
+            margin-top: 1rem;
+            background: #1E293B;
+            border-radius: 0.5rem;
+        }
+
+        .spacing {
+            padding: 1rem 1rem;
+        }
+
+
+        .section > .section-header > h4 {
+            margin: 0;
+        }
+
+        .endpoint {
+            background: #334155;
+            padding: 0.5rem 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #475569;
+        }
+
+        .endpoint-response {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .endpoint > p {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h3>
+        I'm too lazy to sort some proper docs out, but the API is simple and only has 3 endpoints.
+    </h3>
+    <h3>I built this so I didn't have to pay for another service.</h3>
+    <a class="github" href="https://github.com/iDevelopThings/ExchangeRates" target="_blank">
+        Github Repo
+    </a>
+    <div class="section">
+        <div class="spacing section-header">
+            <h4>List Currencies:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p>/currencies</p>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint endpoint-response">
+                <pre>
+{
+  "base": "EUR",
+  "currencies": {
+    "AUD": {
+      "from": "",
+      "to": "AUD",
+      "rate": 1.5795999765396118
+    },
+    "BGN": {
+      "from": "",
+      "to": "BGN",
+      "rate": 1.9558000564575195
+    },
+    "BRL": {
+      "from": "",
+      "to": "BRL",
+      "rate": 6.384399890899658
+    },
+    "CAD": {
+      "from": "",
+      "to": "CAD",
+      "rate": 1.4710999727249146
+    },
+    "CHF": {
+      "from": "",
+      "to": "CHF",
+      "rate": 1.0959999561309814
+    },
+    "CNY": {
+      "from": "",
+      "to": "CNY",
+      "rate": 7.742199897766113
+    },
+    "CZK": {
+      "from": "",
+      "to": "CZK",
+      "rate": 25.451000213623047
+    },
+    "DKK": {
+      "from": "",
+      "to": "DKK",
+      "rate": 7.436600208282471
+    },
+    "GBP": {
+      "from": "",
+      "to": "GBP",
+      "rate": 0.8576499819755554
+    },
+    "HKD": {
+      "from": "",
+      "to": "HKD",
+      "rate": 9.424599647521973
+    },
+    "HRK": {
+      "from": "",
+      "to": "HRK",
+      "rate": 7.51800012588501
+    },
+    "HUF": {
+      "from": "",
+      "to": "HUF",
+      "rate": 347.8500061035156
+    },
+    "IDR": {
+      "from": "",
+      "to": "IDR",
+      "rate": 17404.5390625
+    },
+    "ILS": {
+      "from": "",
+      "to": "ILS",
+      "rate": 3.948199987411499
+    },
+    "INR": {
+      "from": "",
+      "to": "INR",
+      "rate": 88.08599853515625
+    },
+    "ISK": {
+      "from": "",
+      "to": "ISK",
+      "rate": 146.5
+    },
+    "JPY": {
+      "from": "",
+      "to": "JPY",
+      "rate": 133.64999389648438
+    },
+    "KRW": {
+      "from": "",
+      "to": "KRW",
+      "rate": 1355.8599853515625
+    },
+    "MXN": {
+      "from": "",
+      "to": "MXN",
+      "rate": 24.31909942626953
+    },
+    "MYR": {
+      "from": "",
+      "to": "MYR",
+      "rate": 5.018899917602539
+    },
+    "NOK": {
+      "from": "",
+      "to": "NOK",
+      "rate": 10.178999900817871
+    },
+    "NZD": {
+      "from": "",
+      "to": "NZD",
+      "rate": 1.6811000108718872
+    },
+    "PHP": {
+      "from": "",
+      "to": "PHP",
+      "rate": 58.07500076293945
+    },
+    "PLN": {
+      "from": "",
+      "to": "PLN",
+      "rate": 4.486499786376953
+    },
+    "RON": {
+      "from": "",
+      "to": "RON",
+      "rate": 4.919600009918213
+    },
+    "RUB": {
+      "from": "",
+      "to": "RUB",
+      "rate": 89.42030334472656
+    },
+    "SEK": {
+      "from": "",
+      "to": "SEK",
+      "rate": 10.125
+    },
+    "SGD": {
+      "from": "",
+      "to": "SGD",
+      "rate": 1.610200047492981
+    },
+    "THB": {
+      "from": "",
+      "to": "THB",
+      "rate": 38.00400161743164
+    },
+    "TRY": {
+      "from": "",
+      "to": "TRY",
+      "rate": 10.439800262451172
+    },
+    "USD": {
+      "from": "",
+      "to": "USD",
+      "rate": 1.2142000198364258
+    },
+    "ZAR": {
+      "from": "",
+      "to": "ZAR",
+      "rate": 16.79450035095215
+    }
+  }
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <div class="section">
+        <div class="spacing section-header">
+            <h4>List Currencies using a base currency:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p>/currencies?base=GBP</p>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint endpoint-response">
+                <pre>
+{
+  "base": "GBP",
+  "currencies": {
+    "AUD": {
+      "from": "GBP",
+      "to": "AUD",
+      "rate": 1.841776967048645
+    },
+    "BGN": {
+      "from": "GBP",
+      "to": "BGN",
+      "rate": 2.2804174423217773
+    },
+    "BRL": {
+      "from": "GBP",
+      "to": "BRL",
+      "rate": 7.444062232971191
+    },
+    "CAD": {
+      "from": "GBP",
+      "to": "CAD",
+      "rate": 1.7152684926986694
+    },
+    "CHF": {
+      "from": "GBP",
+      "to": "CHF",
+      "rate": 1.277910590171814
+    },
+    "CNY": {
+      "from": "GBP",
+      "to": "CNY",
+      "rate": 9.027225494384766
+    },
+    "CZK": {
+      "from": "GBP",
+      "to": "CZK",
+      "rate": 29.675275802612305
+    },
+    "DKK": {
+      "from": "GBP",
+      "to": "DKK",
+      "rate": 8.670903205871582
+    },
+    "GBP": {
+      "from": "GBP",
+      "to": "GBP",
+      "rate": 1
+    },
+    "HKD": {
+      "from": "GBP",
+      "to": "HKD",
+      "rate": 10.98886489868164
+    },
+    "HRK": {
+      "from": "GBP",
+      "to": "HRK",
+      "rate": 8.765813827514648
+    },
+    "HUF": {
+      "from": "GBP",
+      "to": "HUF",
+      "rate": 405.5850524902344
+    },
+    "IDR": {
+      "from": "GBP",
+      "to": "IDR",
+      "rate": 20293.2890625
+    },
+    "ILS": {
+      "from": "GBP",
+      "to": "ILS",
+      "rate": 4.603509902954102
+    },
+    "INR": {
+      "from": "GBP",
+      "to": "INR",
+      "rate": 102.70623016357422
+    },
+    "ISK": {
+      "from": "GBP",
+      "to": "ISK",
+      "rate": 170.8155975341797
+    },
+    "JPY": {
+      "from": "GBP",
+      "to": "JPY",
+      "rate": 155.83279418945312
+    },
+    "KRW": {
+      "from": "GBP",
+      "to": "KRW",
+      "rate": 1580.9013671875
+    },
+    "MXN": {
+      "from": "GBP",
+      "to": "MXN",
+      "rate": 28.355506896972656
+    },
+    "MYR": {
+      "from": "GBP",
+      "to": "MYR",
+      "rate": 5.851921081542969
+    },
+    "NOK": {
+      "from": "GBP",
+      "to": "NOK",
+      "rate": 11.868477821350098
+    },
+    "NZD": {
+      "from": "GBP",
+      "to": "NZD",
+      "rate": 1.9601236581802368
+    },
+    "PHP": {
+      "from": "GBP",
+      "to": "PHP",
+      "rate": 67.71410369873047
+    },
+    "PLN": {
+      "from": "GBP",
+      "to": "PLN",
+      "rate": 5.231154918670654
+    },
+    "RON": {
+      "from": "GBP",
+      "to": "RON",
+      "rate": 5.73613977432251
+    },
+    "RUB": {
+      "from": "GBP",
+      "to": "RUB",
+      "rate": 104.26200103759766
+    },
+    "SEK": {
+      "from": "GBP",
+      "to": "SEK",
+      "rate": 11.80551528930664
+    },
+    "SGD": {
+      "from": "GBP",
+      "to": "SGD",
+      "rate": 1.8774559497833252
+    },
+    "THB": {
+      "from": "GBP",
+      "to": "THB",
+      "rate": 44.31178665161133
+    },
+    "TRY": {
+      "from": "GBP",
+      "to": "TRY",
+      "rate": 12.172565460205078
+    },
+    "USD": {
+      "from": "GBP",
+      "to": "USD",
+      "rate": 1.41572904586792
+    },
+    "ZAR": {
+      "from": "GBP",
+      "to": "ZAR",
+      "rate": 19.581998825073242
+    }
+  }
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <div class="section">
+        <div class="spacing section-header">
+            <h4>Convert one currency to another:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p>/conversion/{from}/{to} Ex: /conversion/gbp/usd</p>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint endpoint-response">
+                <pre>
+{
+  "base": "GBP",
+  "currency": {
+    "from": "GBP",
+    "to": "USD",
+    "rate": 1.415729
+  }
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <div class="section">
+        <div class="spacing section-header">
+            <h4>Convert an amount to a different currency:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p>/convert/{from}/{to}/{amount} Ex: /convert/gbp/usd/1000</p>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint endpoint-response">
+                <pre>
+{
+  "base": "GBP",
+  "currency": {
+    "from": "GBP",
+    "to": "USD",
+    "rate": 1.415729
+  },
+  "amount": 1415.729
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+{{end}}
