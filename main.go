@@ -74,10 +74,7 @@ func CORS(fn http.HandlerFunc) http.HandlerFunc {
 }
 
 func Information(w http.ResponseWriter, r *http.Request) {
-
 	rnd.HTML(w, http.StatusOK, "info", nil)
-	// w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	// w.Write(response)
 }
 
 func ConvertAmount(w http.ResponseWriter, r *http.Request) {
