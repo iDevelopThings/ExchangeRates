@@ -49,6 +49,7 @@ func main() {
 
 	router.HandleFunc("/", Information)
 	router.HandleFunc("/latest", CORS(Latest))
+	router.HandleFunc("/currencies", CORS(Latest))
 	router.HandleFunc("/conversion/{from}/{to}", CORS(Conversion))
 	router.HandleFunc("/convert/{from}/{to}/{amount}", CORS(ConvertAmount))
 
