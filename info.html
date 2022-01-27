@@ -17,12 +17,20 @@
         .github {
             color: #F1F5F9;
         }
+
         .github:hover {
             color: #bebebe;
         }
 
+        body {
+            display: flex;
+            flex-direction: row;
+        }
+
         .content {
+            width: 100%;
             padding: 4rem;
+            padding-left: 1rem;
         }
 
         .section {
@@ -35,7 +43,6 @@
             padding: 1rem 1rem;
         }
 
-
         .section > .section-header > h4 {
             margin: 0;
         }
@@ -45,20 +52,129 @@
             padding: 0.5rem 0.5rem;
             border-radius: 0.5rem;
             border: 1px solid #475569;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .endpoint > p {
+
+        }
+
+        .endpoint > .method {
+            font-size: 16px;
+            font-weight: bolder;
+            margin-right: 8px;
+        }
+
+        .endpoint-links {
+            margin-top: 10px;
+            background: #334155;
+            padding: 0.5rem 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #475569;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .endpoint-links > a {
+            margin-top: 9px;
+            width: 100%;
+            display: flex;
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .endpoint-links > a:hover {
+            color: #ededed;
         }
 
         .endpoint-response {
+        }
+
+        .endpoint-response > pre {
             max-height: 300px;
             overflow-y: auto;
+            overflow-x: auto;
+            width: 100%;
+            height: 100%;
+            background: #334155;
+            padding: 0.5rem 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #475569;
         }
 
         .endpoint > p {
             margin: 0;
         }
 
+        .section-list {
+            padding: 1rem;
+            max-width: 300px;
+            width: 100%;
+            margin: 8rem 1rem;
+            background: #1E293B;
+            border-radius: 0.5rem;
+            display: flex;
+            height: 100%;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 4rem;
+            flex-direction: column;
+        }
+
+        .section-list > .heading {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 12px;
+            margin-bottom: 18px;
+        }
+
+        .section-list > a {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            color: rgb(209 213 219);
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+
+        .section-list > a:hover {
+            color: rgb(243 244 246);
+        }
+
     </style>
 </head>
 <body>
+
+<div class="section-list">
+    <p class="heading">Api V1</p>
+    <a href="#v1-list-currencies">
+        List Currencies(EURO)
+    </a>
+    <a href="#v1-list-currencies-from-base">
+        List currencies(Specific)
+    </a>
+    <a href="#v1-conversion-rate-from-to">
+        Get rate(from -> to)
+    </a>
+    <a href="#v1-convert-amount-from-to">
+        Convert amount(from -> to)
+    </a>
+    <p class="heading" style="margin-top:25px">Api V2</p>
+    <a href="#v2-list-everything">
+        List Everything \o/
+    </a>
+    <a href="#v2-list-currencies-from-base">
+        List currencies(Specific)
+    </a>
+    <a href="#v2-conversion-rate-from-to">
+        Get rate(from -> to)
+    </a>
+    <a href="#v2-convert-amount-from-to">
+        Convert amount(from -> to)
+    </a>
+</div>
 
 <div class="content">
     <h3>
@@ -68,16 +184,23 @@
     <a class="github" href="https://github.com/iDevelopThings/ExchangeRates" target="_blank">
         Github Repo
     </a>
-    <div class="section">
+    <h1>V1</h1>
+    <div id="v1-list-currencies" class="section">
         <div class="spacing section-header">
             <h4>List Currencies:</h4>
         </div>
         <div class="spacing">
             <div class="endpoint">
+                <p class="method">GET</p>
                 <p>/latest or /currencies</p>
             </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/latest">https://currencies.idt.dev/latest</a>
+                <a href="https://currencies.idt.dev/currencies">https://currencies.idt.dev/currencies</a>
+            </div>
             <p style="padding-top: 0.5rem">Response:</p>
-            <div class="endpoint endpoint-response">
+            <div class="endpoint-response">
                 <pre>
 {
   "base": "EUR",
@@ -249,16 +372,28 @@
 
         </div>
     </div>
-    <div class="section">
+    <div id="v1-list-currencies-from-base" class="section">
         <div class="spacing section-header">
             <h4>List Currencies using a base currency:</h4>
         </div>
         <div class="spacing">
             <div class="endpoint">
-                <p>/latest?base=GBP or /currencies?base=GBP</p>
+                <p class="method">GET</p>
+                <p>/latest?base=GBP or /latest/GBP</p>
+            </div>
+            <div class="endpoint" style="margin-top:5px">
+                <p class="method">GET</p>
+                <p>/currencies?base=GBP or /currencies/GBP</p>
+            </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/latest?base=GBP">https://currencies.idt.dev/latest?base=GBP</a>
+                <a href="https://currencies.idt.dev/latest/GBP">https://currencies.idt.dev/latest/GBP</a>
+                <a href="https://currencies.idt.dev/currencies?base=GBP">https://currencies.idt.dev/currencies?base=GBP</a>
+                <a href="https://currencies.idt.dev/currencies/GBP">https://currencies.idt.dev/currencies/GBP</a>
             </div>
             <p style="padding-top: 0.5rem">Response:</p>
-            <div class="endpoint endpoint-response">
+            <div class="endpoint-response">
                 <pre>
 {
   "base": "GBP",
@@ -430,16 +565,21 @@
 
         </div>
     </div>
-    <div class="section">
+    <div id="v1-conversion-rate-from-to" class="section">
         <div class="spacing section-header">
             <h4>Convert one currency to another:</h4>
         </div>
         <div class="spacing">
             <div class="endpoint">
+                <p class="method">GET</p>
                 <p>/conversion/{from}/{to} Ex: /conversion/gbp/usd</p>
             </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/conversion/gbp/usd">https://currencies.idt.dev/conversion/gbp/usd</a>
+            </div>
             <p style="padding-top: 0.5rem">Response:</p>
-            <div class="endpoint endpoint-response">
+            <div class="endpoint-response">
                 <pre>
 {
   "base": "GBP",
@@ -454,16 +594,21 @@
 
         </div>
     </div>
-    <div class="section">
+    <div id="v1-convert-amount-from-to" class="section">
         <div class="spacing section-header">
             <h4>Convert an amount to a different currency:</h4>
         </div>
         <div class="spacing">
             <div class="endpoint">
+                <p class="method">GET</p>
                 <p>/convert/{from}/{to}/{amount} Ex: /convert/gbp/usd/1000</p>
             </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/convert/gbp/usd/1000">https://currencies.idt.dev/convert/gbp/usd/1000</a>
+            </div>
             <p style="padding-top: 0.5rem">Response:</p>
-            <div class="endpoint endpoint-response">
+            <div class=" endpoint-response">
                 <pre>
 {
   "base": "GBP",
@@ -473,6 +618,217 @@
     "rate": 1.415729
   },
   "amount": 1415.729
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <h1>V2</h1>
+    <div id="v2-list-everything" class="section">
+        <div class="spacing section-header">
+            <h4>List Everything \o/</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p class="method">GET</p>
+                <p>/v2/all</p>
+            </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/v2/all">https://currencies.idt.dev/v1/all</a>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint-response">
+                <pre>
+{
+  "AUD": {
+    "AUD": 1,
+    "BGN": 1.2436,
+    "BRL": 3.884,
+    "CAD": 0.9012,
+    "CHF": 0.6604,
+    "CNY": 4.5332,
+    "CZK": 15.598,
+    "DKK": 4.732,
+    "EUR": 0.6358,
+    "GBP": 0.5307,
+    "HKD": 5.5822,
+    "HRK": 4.7873,
+    "HUF": 228.6959,
+    "IDR": 10291.416,
+    "ILS": 2.2785,
+    "INR": 53.684,
+    "ISK": 92.5796,
+    "JPY": 81.9355,
+    "KRW": 858.4155,
+    "MXN": 14.7418,
+    "MYR": 3.0055,
+    "NOK": 6.3658,
+    "NZD": 1.0724,
+    "PHP": 36.7063,
+    "PLN": 2.9163,
+    "RON": 3.1443,
+    "RUB": 56.7591,
+    "SEK": 6.6442,
+    "SGD": 0.9641,
+    "THB": 23.6339,
+    "TRY": 9.7207,
+    "USD": 0.717,
+    "ZAR": 10.864
+  },
+  // shortened for brevity
+  // each currency has every currencies conversion
+  "BGN": { },
+  "BRL": { },
+  "CAD": { },
+  "CHF": { },
+  "CNY": { },
+  "CZK": { },
+  "DKK": { },
+  "EUR": { },
+  "GBP": { },
+  "HKD": { },
+  "HRK": { },
+  "HUF": { },
+  "IDR": { },
+  "ILS": { },
+  "INR": { },
+  "ISK": { },
+  "JPY": { },
+  "KRW": { },
+  "MXN": { },
+  "MYR": { },
+  "NOK": { },
+  "NZD": { },
+  "PHP": { },
+  "PLN": { },
+  "RON": { },
+  "RUB": { },
+  "SEK": { },
+  "SGD": { },
+  "THB": { },
+  "TRY": { },
+  "USD": { },
+  "ZAR": { }
+}
+
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <div id="v2-list-currencies-from-base" class="section">
+        <div class="spacing section-header">
+            <h4>List Currencies using a base currency:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p class="method">GET</p>
+                <p>/v2/latest or /v2/latest?base=GBP or /v2/latest/GBP</p>
+            </div>
+            <div class="endpoint" style="margin-top:5px">
+                <p class="method">GET</p>
+                <p>/v2/currencies or /v2/currencies?base=GBP or /v2/currencies/GBP</p>
+            </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/v2/latest">https://currencies.idt.dev/v2/latest</a>
+                <a href="https://currencies.idt.dev/v2/latest?base=GBP">https://currencies.idt.dev/v2/latest?base=GBP</a>
+                <a href="https://currencies.idt.dev/v2/latest/GBP">https://currencies.idt.dev/v2/latest/GBP</a>
+                <a href="https://currencies.idt.dev/v2/currencies">https://currencies.idt.dev/v2/currencies</a>
+                <a href="https://currencies.idt.dev/v2/currencies?base=GBP">https://currencies.idt.dev/v2/currencies?base=GBP</a>
+                <a href="https://currencies.idt.dev/v2/currencies/GBP">https://currencies.idt.dev/v2/currencies/GBP</a>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint-response">
+                <pre>{
+  "AUD": 1.5727,
+  "BGN": 1.9558,
+  "BRL": 6.1084,
+  "CAD": 1.4173,
+  "CHF": 1.0386,
+  "CNY": 7.1293,
+  "CZK": 24.531,
+  "DKK": 7.442,
+  "EUR": 1,
+  "GBP": 0.8346,
+  "HKD": 8.7791,
+  "HRK": 7.529,
+  "HUF": 359.67,
+  "IDR": 16185.31,
+  "ILS": 3.5834,
+  "INR": 84.4288,
+  "ISK": 145.6,
+  "JPY": 128.86,
+  "KRW": 1350.03,
+  "MXN": 23.1845,
+  "MYR": 4.7268,
+  "NOK": 10.0115,
+  "NZD": 1.6865,
+  "PHP": 57.728,
+  "PLN": 4.5864,
+  "RON": 4.9451,
+  "RUB": 89.265,
+  "SEK": 10.4493,
+  "SGD": 1.5162,
+  "THB": 37.169,
+  "TRY": 15.2877,
+  "USD": 1.1277,
+  "ZAR": 17.0858
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <div id="v2-conversion-rate-from-to" class="section">
+        <div class="spacing section-header">
+            <h4>Convert one currency to another:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p class="method">GET</p>
+                <p>/v2/conversion/{from}/{to} Ex: /v2/conversion/gbp/usd</p>
+            </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/conversion/v2/gbp/usd">https://currencies.idt.dev/v2/conversion/gbp/usd</a>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class="endpoint-response">
+                <pre>
+{
+  "from": "GBP",
+  "to": "USD",
+  "rate": 1.3512
+}
+                </pre>
+            </div>
+
+        </div>
+    </div>
+    <div id="v2-convert-amount-from-to" class="section">
+        <div class="spacing section-header">
+            <h4>Convert an amount to a different currency:</h4>
+        </div>
+        <div class="spacing">
+            <div class="endpoint">
+                <p class="method">GET</p>
+                <p>/v2/convert/{from}/{to}/{amount} Ex: /v2/convert/gbp/usd/1000</p>
+            </div>
+            <p style="padding-top: 0.5rem">Links:</p>
+            <div class="endpoint-links">
+                <a href="https://currencies.idt.dev/v2/convert/gbp/usd/1000">https://currencies.idt.dev/v2/convert/gbp/usd/1000</a>
+            </div>
+            <p style="padding-top: 0.5rem">Response:</p>
+            <div class=" endpoint-response">
+                <pre>
+{
+  "from": "GBP",
+  "to": "USD",
+  "rate": 1.3512,
+  "amount": 1351.1688
 }
                 </pre>
             </div>
